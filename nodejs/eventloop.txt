@@ -1,0 +1,7 @@
+What i am posting here is my understanding of node.js and this might be a bit off track as well.
+
+Libev is the event loop which actually runs internally in node.js to perform simple event loop operations. It's written originally for *nix systems. Libev provides a simple yet optimized event loop for the process to run on. You can read more about libev here.
+LibEio is a library to perform input output asynchronously. It handles file descriptors, data handlers, sockets etc. You can read more about it here here.
+LibUv is an abstraction layer on the top of libeio , libev, c-ares ( for DNS ) and iocp (for windows asyncronous-io). LibUv performs, mantains and manages all the io and events in the event pool. ( in case of libeio threadpool ). You should check out Ryan Dahl's tutorial on libUv. That will start making more sense to you about how libUv works itself and then you will understand how node.js works on the top of libuv and v8.
+
+http://stackoverflow.com/questions/10680601/nodejs-event-loop
