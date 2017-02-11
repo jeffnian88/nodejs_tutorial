@@ -1,44 +1,57 @@
-var events = require('events');
-var eventEmitter = new events.EventEmitter();
- 
-function ringBell(msg,cb)
-{
-  console.log('ring ring ring:'+msg);
-  cb(200);
-}
-eventEmitter.on('doorOpen', ringBell);
-function callback(val)
-{
-  return val;
-}
-eventEmitter.emit('doorOpen', 'hello_world', function(data){
-
-  console.log('we got val:'+ data);
-});
 
 
 
 
+// Cached
 function closure_deco() {
-	// th following variable is like static var
-	var cached = {};
+	// the clousre variable is kind of like static var
+	var square_cached = {};
 	return function(i) {
-		if(i in cached) {
-			console.log("cached hit");
-			return cached[i];
+		if(i in square_cached) {
+			console.log("square_cached hit.");
+			return square_cached[i];
 		}
-		console.log("cached miss");
+		console.log("square_cached miss.");
 
-		cached[i] = i*i;
+		square_cached[i] = i*i;
 
-		return cached[i];
+		return square_cached[i];
 	}
 }
 
-func = closure_deco();
-console.log(func(1));
-console.log(func(1));
-console.log(func(1));
-console.log(func(2));
-console.log(func(2));
-console.log(func(2));
+squarefunc = closure_deco();
+console.log(squarefunc(1));
+console.log(squarefunc(1));
+console.log(squarefunc(1));
+console.log(squarefunc(2));
+console.log(squarefunc(2));
+console.log(squarefunc(2));
+
+
+var global_i = 0;
+function create_closure(closure_ii){
+  var closure_i = 0;
+  console.log("create");
+  return function (){
+    var local_i = 0;
+    local_i++;
+    global_i++;
+    closure_i++;
+    closure_ii++;
+
+    console.log("local_i:",local_i);
+    console.log("global_i:",global_i);
+    console.log("closure_i:",closure_i);
+    console.log("closure_ii:",closure_ii);
+
+  };
+ }
+
+var func1 = create_closure(0);
+func1();
+func1();
+func1();
+
+var func2 = create_closure(0);
+func2();
+ //console.log("outside:closure_i:", closure_i);

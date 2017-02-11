@@ -41,7 +41,7 @@ function getAuthorStream(){
 
 */
 
-function getArticleObservableStream() {
+function getArticleObservableStream1() {
   return Rx.Observable.create(function (subscriber) {
     console.log("getArticleStreamObservable() was invoked!!");
     request({
@@ -60,13 +60,37 @@ function getArticleObservableStream() {
     });
   });
 };
-var obserable = getArticleObservableStream();
+function getArticleObservableStream2() {
+  return Rx.Observable.create(function (subscriber) {
+    console.log("getArticleStreamObservable() was invoked!!");
+    request({
+      url: 'https://jsonplaceholder.typicode.com/posts', json: true
+    }, function (err, res, body) {
+      if (err) {
+        //reject(err);
+      } else {
+        //console.log("getArticleStreamObservable json api call happened:");
+        body.forEach(function(article){
+          //console.log("getArticleStreamObservable:", article);
+          subscriber.next(article);
+        });
+        subscriber.complete();
+      }
+    });
+  });
+};
+
+var obserable1 = getArticleObservableStream1();
+var obserable2 = getArticleObservableStream2();
 //var sub1 = obserable.subscribe(x => console.log("sub1:", x));
 //var sub2 = obserable.subscribe(x => console.log("sub2:", x));
 
 var subject = new Rx.Subject();
 
-obserable.subscribe(subject); // 你可以透過Subject來訂閱observable
+obserable1.subscribe(subject); // 你可以透過Subject來訂閱observable
+obserable2.subscribe(subject); // 你可以透過Subject來訂閱observable
+
+subject.next = (msg) => {console.log("msg:", msg);}
 
 var subject_sub1 = subject.subscribe({
   next: (v) => console.log('subject_sub1: ', v , " draw UI")
