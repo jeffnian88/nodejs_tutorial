@@ -3,8 +3,7 @@ var rp = require('request-promise');
 
 var requestStream = Rx.Observable.of('https://api.github.com/users/jeffnian88');
 
-var responseStream = requestStream
-  .flatMap(function(requestUrl) {
+function getPromise(requestUrl) {
     var options = {
       uri: requestUrl,
       qs: {
@@ -15,8 +14,12 @@ var responseStream = requestStream
       },
       json: true // Automatically parses the JSON string in the response 
     };
-
-    return Rx.Observable.fromPromise(rp(options));
+    return rp(options);
+}
+var responseStream = requestStream
+  .switchMap(function(requestUrl) {
+  .flatMap(function(requestUrl) {
+    return Rx.Observable.fromPromise(getPromise(requestUrl));
   }).pluck('id');
 
 responseStream.subscribe(function(response) {
