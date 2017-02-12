@@ -1,5 +1,5 @@
 var Rx = require('rxjs/Rx');
-var cached = {};
+var cached = ['a','b'];
 var source = Rx.Observable.of(cached[1]);
 
 var subscription = source.subscribe(
