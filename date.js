@@ -6,3 +6,5 @@ startDate.setSeconds(0);
 console.log("startDate:", startDate);
 startDate.setHours(startDate.getHours() - 8);
 console.log("startDate:", startDate);
+
+console.log(Date.now());
