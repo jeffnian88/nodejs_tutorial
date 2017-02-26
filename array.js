@@ -1,4 +1,5 @@
 arr = ["item1", "item2", "item3", "item4"];
+console.log(Object.prototype.toString.call(arr));
 console.log(arr.length);
 arr.forEach(function(item, index) {
   console.log("forEach index:", index, ", item:",item);

@@ -11,3 +11,10 @@ var f2 = add2(100);
 console.log(f1(1))
 console.log(f2(2));
 //console.log(add2(2,3)());
+
+
+var aa = (state) => ({
+    state:"s",
+    message: "m"
+});
+console.log(aa());
