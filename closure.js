@@ -55,3 +55,18 @@ func1();
 var func2 = create_closure(0);
 func2();
  //console.log("outside:closure_i:", closure_i);
+
+var aa = (x) => (y) => console.log("x:", x, "y:",y);
+a1 = aa(1);
+a2 = aa(2);
+
+a1(3);
+a2(4);
+
+
+function qq()
+{
+  return console.log("qq");
+}
+qq();
+
