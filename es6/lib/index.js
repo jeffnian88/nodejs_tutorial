@@ -5,3 +5,4 @@ export function square(x) {
 export function diag(x, y) {
     return sqrt(square(x) + square(y));
 }
+exports.wahaha = function AAA(){};

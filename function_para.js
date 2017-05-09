@@ -1,7 +1,11 @@
-function getval()
+function getval(...qq)
 {
+  console.log(qq);
+  console.log(qq.pop());
+  console.log(qq);
   return 123;
 }
+getval([1,2,3,4], 1);
 
 /*function wahaha(){
   val = getval();

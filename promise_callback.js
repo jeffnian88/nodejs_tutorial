@@ -43,10 +43,12 @@ Promise.all([p1, p2, p3]).then(function(values) {
 function asyncFunc() {
     return new Promise(
         function (resolve, reject) {
-			setTimeout(resolve, 1000, "qoo");
+			setTimeout(reject, 1000, "qoo");
         });
 }
-asyncFunc().then(function(result) { console.log("result:", result);});
+asyncFunc().then(function(result) { console.log("result:", result);}).catch(error=>{
+  console.log("err:", error);
+});
 
 
 var readFile = Promise.denodeify(require('fs').readFile);

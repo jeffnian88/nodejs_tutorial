@@ -5,6 +5,10 @@ console.log("a:", a);
 console.log("b:", b);
 console.log("c:", c);
 
+let testobj = {b:{aa:1111, bb:222}};
+let {aa,bb} = testobj.b?testobj.b:{};
+console.log(aa, bb);
+
 //let qoo = {({a,b}=jsondata)};
 //console.log(qoo);
 //console.log(...jsondata);

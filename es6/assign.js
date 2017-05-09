@@ -35,3 +35,9 @@ var obj7 = Object.assign({}, obj5, obj6);
 console.log("obj5:", obj5);
 console.log("obj6:", obj6);
 console.log("obj7:", obj7);
+
+var oo = {};
+oo['a'] = Object.assign({}, oo['a'], {abc:123});
+console.log(oo);
+oo['a'] = Object.assign({}, oo['a'], {a:123});
+console.log(oo);

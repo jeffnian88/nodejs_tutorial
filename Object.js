@@ -19,3 +19,6 @@ var john = Object.create(proto);
 john.name = "John";
 john.hello();
 john.hello1.call(john);
+let a={};
+let obj = {a:1};
+console.log(Object.assign({}, obj, a.profile));

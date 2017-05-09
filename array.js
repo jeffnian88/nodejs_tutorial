@@ -1,4 +1,11 @@
 arr = ["item1", "item2", "item3", "item4"];
+objarr = [{id:1}, {id:2}];
+for(let item of objarr){console.log("item:", item);}
+for(let i in objarr){console.log("i:", i);}
+objarr.map((val)=>{console.log("val:", val);});
+console.log("slice(0,-1):", arr.slice(0,-1));
+console.log("slice(0,0):", arr.slice(0,0));
+console.log(arr.slice(0,1));
 console.log(Object.prototype.toString.call(arr));
 console.log(arr.length);
 var ret;
@@ -46,5 +53,8 @@ console.log("arr1:[splice]",arr1);
 function isBigEnough(value) {
   return value >= 10;
 }
-var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+let numarr = [12, 5, 8, 130, 44];
+var filtered = numarr.filter(isBigEnough);
 
+filtered[0] = 1;
+console.log(numarr);

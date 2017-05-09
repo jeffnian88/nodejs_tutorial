@@ -86,11 +86,12 @@ var obserable2 = getArticleObservableStream2();
 //var sub2 = obserable.subscribe(x => console.log("sub2:", x));
 
 var subject = new Rx.Subject();
-
+var mReplaySubject = new Rx.ReplaySubject();
+obserable1.subscribe(mReplaySubject); // 你可以透過Subject來訂閱observable
 obserable1.subscribe(subject); // 你可以透過Subject來訂閱observable
-obserable2.subscribe(subject); // 你可以透過Subject來訂閱observable
+//obserable2.subscribe(subject); // 你可以透過Subject來訂閱observable
 
-subject.next = (msg) => {console.log("msg:", msg);}
+//subject.next = (msg) => {console.log("msg:", msg);}
 
 var subject_sub1 = subject.subscribe({
   next: (v) => console.log('subject_sub1: ', v , " draw UI")
@@ -100,11 +101,11 @@ var subject_sub2 = subject.subscribe({
 });
 
 function handler() {
-  var subject_sub3 = subject.subscribe({
+  var subject_sub3 = mReplaySubject.subscribe({
     next: (v) => console.log('subject_sub3: ', v , " do other thing")
   });
 }
-setTimeout(handler, 1000);
+setTimeout(handler, 4000);
 
 
 /*

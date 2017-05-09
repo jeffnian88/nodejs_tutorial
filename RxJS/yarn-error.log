@@ -1,0 +1,31 @@
+Arguments: 
+  /Users/macair/.nvm/versions/node/v6.10.0/bin/node /usr/local/bin/yarn add rxjs/Rx
+
+PATH: 
+  /Users/macair/.nvm/versions/node/v6.10.0/bin:/Users/macair/google-cloud-sdk/bin:./node_modules/.bin:/opt/local/bin:/opt/local/sbin:/Users/macair/go_appengine:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/macair/Library/Android/sdk/tools:/Users/macair/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  0.17.9
+
+Node version: 
+  6.10.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: TODO
+      at /usr/local/Cellar/yarn/0.17.9/libexec/lib/node_modules/yarn/lib/resolvers/exotics/hosted-git-resolver.js:135:15
+      at next (native)
+      at step (/usr/local/Cellar/yarn/0.17.9/libexec/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
+      at /usr/local/Cellar/yarn/0.17.9/libexec/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
+      at process._tickCallback (internal/process/next_tick.js:103:7)

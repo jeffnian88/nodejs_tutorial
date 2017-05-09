@@ -22,3 +22,15 @@ Promise.all([
 ]).then(([result1, result2]) => {
   console.log("[result]:",result1,result2);
 }).catch(error => {console.log("error:", error);})
+
+var add1 = (n) => new Promise((resolve, reject) => resolve(n+1));
+add1(1)
+.then(n=>add1(n))
+.then(n=>add1(n))
+.then(n=>console.log("n:",n));
+
+var add1 = (n) => new Promise((resolve, reject) => resolve(n+1));
+add1(1)
+.then(function(n){return add1(n)})
+.then(n=>add1(n))
+.then(n=>console.log("n:",n));

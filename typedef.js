@@ -29,6 +29,5 @@ typeof {a:1} === 'object';
 typeof [1, 2, 4] === 'object'; // 請使用 Array.isArray 或者 Object.prototype.toString.call 以區分正規運算式和陣列
 typeof new Date() === 'object';
 
-
 console.log("1:",typeof blabla === 'undefined');
-console.log("2:",typeof blabla == 'undefined');
+console.log("2:",Array.isArray({}));
