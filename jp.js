@@ -13,3 +13,12 @@ console.log(aa);
 console.log(JSON.stringify(cities));
 
 console.log(cities[0]===aa);
+
+let queryIDMap = {};
+for(let i=0;i<10;i++){
+while ((queryID = Date.now()) in queryIDMap) { }
+}
+queryIDMap[queryID] = true;
+
+
+let queryID, i=0 ; while ((queryID = Date.now()+i) in queryIDMap) { i++; } queryIDMap[queryID] = true;

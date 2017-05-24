@@ -1,7 +1,13 @@
-var newmap = new Map();
-newmap[1] = {v:"1"};
-newmap[2] = {v:"2"};
-newmap[3] = {v:"3"};
-console.log(newmap);
-nextmap = newmap.filter((k,v)=> {console.log(k,v)});
-console.log(nextmap)
+
+
+let keyMapIndex = {'123':1, '456':2};
+function removeKey(keyMapIndex, key, list) {
+
+let nextKeyMapIndex = Object.assign({}, keyMapIndex);
+nextKeyMapIndex['123'] = 12;
+return nextKeyMapIndex;
+}
+let nextKeyMapIndex = removeKey(keyMapIndex);
+console.log(keyMapIndex);
+keyMapIndex['456'] = 99;
+console.log(nextKeyMapIndex);

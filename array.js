@@ -1,7 +1,12 @@
 arr = ["item1", "item2", "item3", "item4"];
 objarr = [{id:1}, {id:2}];
-for(let item of objarr){console.log("item:", item);}
-for(let i in objarr){console.log("i:", i);}
+let _obj = {'13':{a:1}, '12':{b:1}};
+let {gg} = _obj;
+console.log(_obj.length);
+for(let i in gg){console.log("i:", i);}
+for(let [index, value] of arr.entries()){console.log("11111item:", index, value);}
+
+
 objarr.map((val)=>{console.log("val:", val);});
 console.log("slice(0,-1):", arr.slice(0,-1));
 console.log("slice(0,0):", arr.slice(0,0));
